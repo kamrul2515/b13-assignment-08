@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-async function getAllProducts() {
+async function getProducts() {
     const res = await fetch("https://b-tiles-server-all-1.onrender.com/allproducts", {
         cache: 'no-store' 
     });
@@ -10,21 +10,21 @@ async function getAllProducts() {
     return data.products || data;
 }
 
-const AllTiles = async () => {
-    const products = await getAllProducts();
+const Tiles = async () => {
+    const products = await getProducts();
 
     return (
         <div className='container mx-auto mt-12 px-4 mb-20'> 
             <div className='flex justify-between items-center mb-8'>
                 <h2 className="text-3xl font-bold text-[#1B3B6F]">FEATURED TILES</h2>
-                <Link href="/" className='text-[#18B273] font-semibold hover:underline'>
-                    Back to Home
+                <Link href="/all-tiles" className='text-[#18B273] font-semibold hover:underline'>
+                    See All
                 </Link>
             </div>
 
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
                 {
-                    Array.isArray(products) && products.slice(0, 15).map((tile) => (
+                    Array.isArray(products) && products.slice(0, 6).map((tile) => (
                         <div key={tile.id} className="card bg-base-100 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300">
                             <figure className='px-4 pt-4'>
                                 <div className='relative w-full h-56 overflow-hidden rounded-xl'>
@@ -79,4 +79,4 @@ const AllTiles = async () => {
     );
 };
 
-export default AllTiles;
+export default Tiles;
