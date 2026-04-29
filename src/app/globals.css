@@ -2,3 +2,6 @@
 @plugin "daisyui";
 
 
+.hover-animate:hover {
+    animation-iteration-count: 1;
+}

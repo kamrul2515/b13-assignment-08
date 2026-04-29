@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from "next/image";
+import 'animate.css'; 
 
 const Banner = () => {
     return (
@@ -8,29 +9,31 @@ const Banner = () => {
                 
                 {/* Right Side: Image Section */}
                 <div className="flex-1 flex justify-center lg:justify-end">
-                  <Image 
-                    src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" 
-                    alt="Discover Aesthetic Tiles" 
-                    width={600} 
-                    height={400} 
-                    className="max-w-full md:max-w-md rounded-lg shadow-2xl border-4 border-white" 
-                    priority
-                  />
+                  <div className="hover-animate hover:animate__pulse transition-all duration-300">
+                    <Image 
+                      src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" 
+                      alt="Discover Aesthetic Tiles" 
+                      width={600} 
+                      height={400} 
+                      className="max-w-full md:max-w-md rounded-lg shadow-2xl border-4 border-white cursor-pointer hover:scale-105 transition-transform duration-500" 
+                      priority
+                    />
+                  </div>
                 </div>
         
                 {/* Left Side: Text Content */}
                 <div className="flex-1 text-center lg:text-left">
-                  <h1 className="text-4xl md:text-6xl font-bold text-[#1B3B6F] leading-tight">
+                  <h1 className="animate__animated animate__fadeInLeft text-4xl md:text-6xl font-bold text-[#1B3B6F] leading-tight">
                     Discover Your <br /> 
                     <span className="text-[#18B273]">Perfect Aesthetic</span>
                   </h1>
-                  <p className="py-6 text-gray-600 text-lg md:text-xl max-w-lg">
+                  <p className="animate__animated animate__fadeInLeft animate__delay-1s py-6 text-gray-600 text-lg md:text-xl max-w-lg">
                     Explore our exclusive collection of premium tiles. Find the perfect balance of design, 
                     durability, and elegance for your dream space.
                   </p>
                   <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                     <button 
-                        className="btn text-white border-none px-8 py-3 rounded-md font-semibold transition-transform hover:scale-105"
+                        className="btn text-white border-none px-8 py-3 rounded-md font-semibold transition-transform hover:scale-110 active:scale-95"
                         style={{ backgroundColor: '#18B273' }}
                     >
                         Browse Now
