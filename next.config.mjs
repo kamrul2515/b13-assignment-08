@@ -8,7 +8,12 @@ const nextConfig = {
       { protocol: 'https', hostname: 'ibb.co' },
       { protocol: 'https', hostname: 'i.ibb.co' },
       { protocol: 'https', hostname: 'cdn.vectorstock.com' },
+      { protocol: 'https', hostname: 'png.pngtree.com' }, 
     ],
+  },
+  devIndicators: {
+    appIsrStatus: false, 
+    buildActivity: false,
   },
 };
 

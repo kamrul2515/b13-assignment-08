@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoadingPage = () => {
     return (
-        <div className="flex justify-center items-center min-h-[400px] w-full">
+        <div className="flex justify-center items-center min-h-100 w-full">
             <span className="loading loading-bars loading-lg text-[#1B3B6F]"></span>
         </div>
     );

@@ -115,9 +115,9 @@ const LoginPage = () => {
                  <button 
     type="button" 
     onClick={handleGoogleSignin}
-    className="flex gap-3 justify-center items-center w-full border border-gray-300 bg-white text-gray-700 font-medium py-3 rounded-md hover:bg-gray-50 transition-all mt-4 text-lg shadow-sm"
+    className="flex gap-3 justify-center items-center w-full border border-gray-300 bg-white text-gray-700 font-medium py-3 rounded-md hover:bg-gray-300 transition-all hover:text-blue mt-4 text-lg shadow-sm"
 >
-    <FaGoogle className="text-xl text-[#DB4437]" /> 
+    <FaGoogle className="text-xl text-[#DB4437] " /> 
     <span>Continue with Google</span>
 </button>
 

@@ -5,6 +5,10 @@ import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 import { MdOutlineSubdirectoryArrowRight } from 'react-icons/md';
 import 'animate.css'; 
 
+export const metadata = {
+  title: "B-Tiles Best All Tiles",
+};
+
 async function getProducts() {
     const res = await fetch("https://b-tiles-server-all-1.onrender.com/allproducts", {
         cache: 'no-store' 

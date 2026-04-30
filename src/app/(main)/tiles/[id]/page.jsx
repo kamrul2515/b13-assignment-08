@@ -1,10 +1,21 @@
-// src/app/tile/[id]/page.js
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FaRegHandPointLeft } from 'react-icons/fa';
 
-// স্পেসিফিক প্রোডাক্ট ফেচ করার ফাংশন
+export const generateMetadata = async ({params}) =>{
+    const {id} = await params;
+    
+    console.log(id, "params")
+    const tile = await getSingleProduct(id);
+    console.log(tile, "tile")
+
+    return {
+    title: tile.title,
+    description: tile.description,
+  }
+};
+
 async function getSingleProduct(id) {
     const res = await fetch(`https://b-tiles-server-all-1.onrender.com/allproducts`, {
         cache: 'no-store'
@@ -25,11 +36,9 @@ const TilesDetailsPage = async ({ params }) => {
     return (
         <div className="flex items-center justify-center py-10 px-4">
             <div className="container mx-auto bg-base-100 rounded-3xl shadow-xl overflow-hidden">
-                {/* ১২ কলামের মেইন গ্রিড */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
                     
-                    {/* বাম পাশে ইমেজ: ডেক্সটপে ৬ কলাম (grid-cols-6 equivalent) */}
-                    <div className="lg:col-span-6 relative min-h-[400px] lg:min-h-[600px]">
+                    <div className="lg:col-span-6 relative min-h-100 lg:min-h-150">
                         <Image
                             src={tile.image}
                             alt={tile.title}
@@ -40,7 +49,6 @@ const TilesDetailsPage = async ({ params }) => {
                         />
                     </div>
 
-                    {/* ডান পাশে টেক্সট: ডেক্সটপে ৬ কলাম (grid-cols-6 equivalent) */}
                     <div className="lg:col-span-6 p-8 lg:p-16 flex flex-col justify-center bg-white">
                         <div className="space-y-6">
                             <div>

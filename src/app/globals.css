@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+nextjs-portal {
+  display: none !important;
+}
+
+#nd-dev-indicator {
+  display: none !important;
+}
 
 .hover-animate:hover {
     animation-iteration-count: 1;
