@@ -3,7 +3,7 @@ import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 const LoginPage = () => {
@@ -46,6 +46,15 @@ const LoginPage = () => {
                 theme: "colored",
             });
         }
+    };
+
+    const handleGoogleSignin = async () => {
+        await authClient.signIn.social({
+            provider: "google",
+            callbackURL: "/", 
+        });
+
+        console.log(data, "data")
     };
 
     return (
@@ -102,11 +111,20 @@ const LoginPage = () => {
         <p className='text-red-500 text-sm mt-1'>{errors.password.message}</p>
     )}
 </fieldset>
+                    
+                 <button 
+    type="button" 
+    onClick={handleGoogleSignin}
+    className="flex gap-3 justify-center items-center w-full border border-gray-300 bg-white text-gray-700 font-medium py-3 rounded-md hover:bg-gray-50 transition-all mt-4 text-lg shadow-sm"
+>
+    <FaGoogle className="text-xl text-[#DB4437]" /> 
+    <span>Continue with Google</span>
+</button>
 
                     {/* Login Button */}
                     <button
                         type="submit"
-                        className="w-full bg-[#403F3F] text-white font-semibold py-4 rounded-md hover:bg-black transition-all mt-4 text-lg"
+                        className="w-full bg-[#18B273] text-white font-semibold py-4 rounded-md hover:bg-[#3edf9c] transition-all mt-4 text-lg"
                     >
                         Login
                     </button>

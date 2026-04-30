@@ -5,8 +5,13 @@ import { usePathname } from 'next/navigation';
 import React from 'react';
 import userAvatar from "@/assets/user.png"
 import logopng from "@/assets/logo.png"
+import { authClient } from '@/lib/auth-client';
 
 const Navbar = () => {
+    const { data: session, isPending } = authClient.useSession();
+    const user = session?.user;
+    console.log(user, isPending, "user")
+
     const pathname = usePathname(); 
 
     const activeStyle = (path) => {
@@ -63,25 +68,33 @@ const Navbar = () => {
                 </div>
 
                 {/* Right Side: Profile & Login */}
-                <div className='flex items-center gap-2'>
+        {isPending ? (<span className="loading loading-spinner loading-lg"></span>) 
+        :user ?
+                (<div className='flex items-center gap-2'>
+                    <h2>Hello, {user.name}</h2>
                     <div className="hidden sm:block"> 
                         <Image 
-                            src={userAvatar} 
+                            src={user?.image || userAvatar} 
                             alt="User Avatar" 
                             width={32} 
                             height={32} 
                             className='rounded-full border border-gray-200' 
                         />
                     </div>
-                    <Link href="/login">
-                        <button 
-                            className='text-white px-4 md:px-5 py-2 rounded-md font-medium text-sm md:text-base transition-all hover:opacity-90'
-                            style={{ backgroundColor: '#18B273' }}
-                        >
+                        <button className='btn bg-[#ff2a2a] text-white px-4 md:px-5 py-2 rounded-md font-medium text-sm
+                             md:text-base transition-all hover:opacity-90' 
+                             onClick={async()=> await authClient.signOut()}>Logout</button>
+                </div>) : (
+                    
+                    <button 
+                            className='btn bg-[#18B273] text-white px-4 md:px-5 py-2 rounded-md font-medium text-sm
+                             md:text-base transition-all hover:opacity-90'
+
+                        ><Link href="/login">
                             Login
+                            </Link>
                         </button>
-                    </Link>
-                </div>
+                )}
             </div>
         </div>
     );

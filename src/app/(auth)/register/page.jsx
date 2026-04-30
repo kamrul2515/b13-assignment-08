@@ -156,7 +156,7 @@ theme: "colored",
                     {/* Login Button */}
                     <button 
                         type="submit" 
-                        className="w-full bg-[#403F3F] text-white font-semibold py-4 rounded-md hover:bg-black transition-all mt-4 text-lg"
+                        className="w-full bg-[#18B273] text-white font-semibold py-4 rounded-md hover:bg-[#3edf9c] transition-all mt-4 text-lg"
                     >
                         Register
                     </button>

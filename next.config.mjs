@@ -7,6 +7,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'img.daisyui.com' },
       { protocol: 'https', hostname: 'ibb.co' },
       { protocol: 'https', hostname: 'i.ibb.co' },
+      { protocol: 'https', hostname: 'cdn.vectorstock.com' },
     ],
   },
 };
