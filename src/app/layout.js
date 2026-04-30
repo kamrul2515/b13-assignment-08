@@ -1,5 +1,6 @@
-import {  Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -9,11 +10,6 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 });
 
-// export const montserrat = Montserrat({
-//   variable: "--font-montserrat",
-//   subsets: ["latin"],
-//   weight: ["400", "500", "600", "700"],
-// });
 
 export const metadata = {
   title: "Create Next App",
@@ -30,6 +26,18 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.className} min-h-full flex flex-col`}>
         
         {children}
+        <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick={false}
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+/>
       </body>
     </html>
   );
